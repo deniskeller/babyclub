@@ -1,28 +1,63 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="preloader" ref="preloader">
+      <img src="@/assets/img/logo.svg" class="preloader__img" alt="">
+    </div>
+    <Landing/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Landing from "./views/Landing.vue";
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Landing
+  },
+  mounted() {
+    setTimeout(() => !this.$refs.preloader.classList.contains('preloader_onload') ? this.$refs.preloader.classList.add('preloader_onload') : '', 1000);
   }
-}
+};
 </script>
 
-<style>
+<style lang="less">
+@import "./assets/less/variables.less";
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: @font-Muller;
+  font-style: normal;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  visibility: visible;
+  opacity: 1;
+  
+  &_onload {
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s ease;
+  }
+  
+  &__img {
+    width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .preloader {
+    &__img {
+      width: 290px;
+    }
+  }
 }
 </style>
