@@ -1,24 +1,13 @@
-# babyclub
+### demo
 
-## Project setup
-```
+https://babyclub-landing.web.app/
+
+### Setup
+
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+### Launch
+
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Фронт работы: делал версту лендинга на Vue.js
